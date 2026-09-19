@@ -39,5 +39,3 @@ ANALYST NOTES
 5. The email requires additional investigation before the request
    can be considered legitimate.
 
-This email is completely fictional and is created for cybersecurity
-training and portfolio purposes.
