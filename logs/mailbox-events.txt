@@ -1,0 +1,80 @@
+SIMULATED MAILBOX ACTIVITY EVENTS
+=================================
+
+Case: BEC-001
+Account: d.miller@northstar.example
+
+All events are fictional and created for cybersecurity training
+and portfolio purposes.
+
+
+MAILBOX EVENTS
+--------------
+
+10:18:44 UTC
+Event: Email sent
+
+Account: d.miller@northstar.example
+Recipient: p.shah@northstar.example
+Subject: Urgent: Vendor Payment — Updated Bank Details
+Source IP: 198.51.100.44
+
+
+10:21:03 UTC
+Event: Inbox rule created
+
+Account: d.miller@northstar.example
+Rule name: Finance Message Archive
+Condition: Subject or message body contains "bank" or "payment"
+Action: Move message to Archive
+Source IP: 198.51.100.44
+
+
+10:24:16 UTC
+Event: Mailbox forwarding configuration changed
+
+Account: d.miller@northstar.example
+Configuration: New forwarding destination detected
+Source IP: 198.51.100.44
+Status: Suspicious
+
+
+10:30:00 UTC
+Event: Suspicious activity reported
+
+Reporter: p.shah@northstar.example
+Description: Finance employee reports suspicious payment request
+related to updated vendor banking information.
+
+
+10:35:00 UTC
+Event: SOC investigation initiated
+
+Analyst actions:
+- Review authentication activity
+- Review mailbox activity
+- Identify suspicious rules
+- Review forwarding configuration
+- Investigate related email activity
+
+
+ANALYST NOTES
+-------------
+
+1. A suspicious email was sent from the executive mailbox.
+
+2. A mailbox rule was created shortly after the email was sent.
+
+3. The rule targets messages containing financial keywords.
+
+4. A new mailbox forwarding configuration was detected shortly
+   afterward.
+
+5. The same source IP, 198.51.100.44, is associated with the
+   suspicious authentication and mailbox activity.
+
+6. The sequence of events increases the need for investigation
+   into potential unauthorized mailbox access.
+
+7. No actual financial loss has been established in this
+   simulation.
