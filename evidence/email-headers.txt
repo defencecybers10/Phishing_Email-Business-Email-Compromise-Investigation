@@ -1,4 +1,4 @@
-SIMULATED EMAIL HEADERS
+EMAIL HEADERS
 =======================
 
 Case: BEC-001
