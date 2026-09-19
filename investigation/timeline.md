@@ -75,6 +75,3 @@ scenario** involving suspicious authentication and mailbox activity.
 Further investigation should determine whether the account was
 compromised and whether additional messages or mailbox activity were
 affected.
-
-> **Note:** All data in this timeline is simulated for cybersecurity
-> education and portfolio purposes.
