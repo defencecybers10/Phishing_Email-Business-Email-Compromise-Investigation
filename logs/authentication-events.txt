@@ -1,0 +1,80 @@
+SIMULATED AUTHENTICATION EVENTS
+===============================
+
+Case: BEC-001
+Account: d.miller@northstar.example
+
+All events below are fictional and created for cybersecurity
+training and portfolio purposes.
+
+
+TIMELINE
+--------
+
+09:51:12 UTC
+Event: Successful authentication
+User: d.miller@northstar.example
+Source IP: 198.51.100.44
+Result: Success
+Risk: Unusual source location/IP
+
+
+10:02:37 UTC
+Event: New mailbox session
+User: d.miller@northstar.example
+Source IP: 198.51.100.44
+Result: Session established
+
+
+10:18:44 UTC
+Event: Email sent
+User: d.miller@northstar.example
+Source IP: 198.51.100.44
+Recipient: p.shah@northstar.example
+Subject: Urgent: Vendor Payment — Updated Bank Details
+
+
+10:21:03 UTC
+Event: New mailbox rule created
+User: d.miller@northstar.example
+Source IP: 198.51.100.44
+Rule: Move messages containing "bank" or "payment" to Archive
+
+
+10:24:16 UTC
+Event: Mailbox forwarding configuration detected
+User: d.miller@northstar.example
+Source IP: 198.51.100.44
+Status: New forwarding configuration
+
+
+10:30:00 UTC
+Event: Suspicious activity reported
+Reporter: p.shah@northstar.example
+Description: Finance employee reports suspicious payment request
+
+
+10:35:00 UTC
+Event: SOC investigation initiated
+Analyst action: Account and mailbox activity review started
+
+
+ANALYST NOTES
+-------------
+
+1. Successful authentication was observed from 198.51.100.44.
+
+2. The same IP was associated with a new mailbox session.
+
+3. An email requesting a vendor payment was sent shortly after
+   the authentication event.
+
+4. A new mailbox rule was created after the email was sent.
+
+5. Mailbox forwarding activity was subsequently detected.
+
+6. The sequence of authentication, email activity, mailbox rule
+   creation, and forwarding configuration requires investigation.
+
+7. These events are simulated and do not represent real user
+   activity or infrastructure.
