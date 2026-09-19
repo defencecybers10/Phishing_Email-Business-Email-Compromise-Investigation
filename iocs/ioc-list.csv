@@ -1,0 +1,7 @@
+IOC Type,Indicator,Source,Description,Investigation Status
+Email Account,d.miller@northstar.example,Email and authentication logs,Executive mailbox associated with suspicious activity,Investigate
+IP Address,198.51.100.44,Email headers and authentication logs,Source IP associated with suspicious authentication and mailbox activity,Investigate
+Mailbox Rule,Move messages containing "bank" or "payment" to Archive,Mailbox events,Potential defense evasion or concealment activity,Investigate
+Forwarding Configuration,New mailbox forwarding configuration,Mailbox events,Potential unauthorized mailbox configuration change,Investigate
+Message ID,BEC-001-20260919@northstar.example,Email headers,Identifier for the suspicious simulated email,Investigate
+Domain,unknown-host.example,Email headers,Host associated with the simulated originating connection,Investigate
