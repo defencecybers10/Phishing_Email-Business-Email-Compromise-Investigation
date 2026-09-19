@@ -1,0 +1,43 @@
+SIMULATED PHISHING EMAIL
+========================
+
+Case: BEC-001
+Classification: Simulated Business Email Compromise
+
+From: d.miller@northstar.example
+To: p.shah@northstar.example
+Subject: Urgent: Vendor Payment — Updated Bank Details
+Date: Sat, 19 Sep 2026 10:18:44 +0000
+
+--------------------------------------------------
+
+Hi Priya,
+
+Please process the outstanding vendor payment today.
+
+The vendor has recently changed their banking details. Please use
+the updated bank account information provided in the attached
+payment instructions.
+
+This is urgent, so please prioritize the payment and confirm once
+the transfer has been initiated.
+
+Thanks,
+David Miller
+Chief Financial Officer
+Northstar Technologies
+
+--------------------------------------------------
+
+ANALYST NOTES
+-------------
+
+1. The message appears to originate from the CFO's account.
+2. The request involves a financial transaction.
+3. The message creates urgency around the payment.
+4. The request involves changing vendor banking information.
+5. The email requires additional investigation before the request
+   can be considered legitimate.
+
+This email is completely fictional and is created for cybersecurity
+training and portfolio purposes.
