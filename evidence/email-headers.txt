@@ -1,0 +1,53 @@
+SIMULATED EMAIL HEADERS
+=======================
+
+Case: BEC-001
+Classification: Simulated Business Email Compromise
+
+From: d.miller@northstar.example
+To: p.shah@northstar.example
+Subject: Urgent: Vendor Payment — Updated Bank Details
+Date: Sat, 19 Sep 2026 10:18:44 +0000
+
+Return-Path: d.miller@northstar.example
+
+Received: from mail.northstar.example (192.0.2.55)
+        by finance.northstar.example
+
+Received: from unknown-host.example (198.51.100.44)
+        by mail.northstar.example
+
+Authentication-Results:
+        spf=pass
+        dkim=pass
+        dmarc=pass
+
+X-Originating-IP: 198.51.100.44
+
+Message-ID: <BEC-001-20260919@northstar.example>
+
+
+ANALYST NOTES
+-------------
+
+1. SPF authentication passed.
+
+2. DKIM authentication passed.
+
+3. DMARC authentication passed.
+
+4. The originating IP address is 198.51.100.44.
+
+5. The email appears to originate from the CFO's account.
+
+6. Authentication passing does not by itself prove that the
+   activity is legitimate.
+
+7. The originating IP and related account activity should be
+   correlated with authentication and mailbox logs.
+
+8. The headers are simulated for educational purposes.
+
+NOTE:
+The IP addresses use documentation ranges and the domains use
+.example names. No real infrastructure is involved.
