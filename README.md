@@ -43,7 +43,7 @@ incident response.
 | 10:30 | Finance employee reports the request as suspicious |
 | 10:35 | SOC investigation started |
 
-Full detail: [`investigation/incident_timeline.md`](investigation/incident_timeline.md)
+Full detail: [investigation/incident_timeline.md](investigation/incident_timeline.md)
 
 ## Key Findings
 1. SPF, DKIM, and DMARC passed, which fits misuse of a legitimate account
