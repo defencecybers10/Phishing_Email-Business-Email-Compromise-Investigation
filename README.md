@@ -24,13 +24,14 @@ incident response.
 ## Repository Contents
 | File / Folder | What it contains |
 |---|---|
-| `phishing-email.txt` | The suspicious payment request |
-| `evidence/email-headers.txt` | Email headers and analyst notes |
-| `Authentication-events` | Simulated sign-in and session events |
-| `Mailbox_eventlogs` | Simulated mailbox audit events |
-| `IOC_list` | Indicators of compromise (CSV format) |
-| `investigation/` | Timeline and ATT&CK mapping |
-| `report/` | Final incident investigation report |
+| [`phishing-email.txt`](phishing-email.txt) | The suspicious payment request |
+| [`evidence/`](evidence/) | Email headers and analyst notes |
+| [`Authentication-events`](Authentication-events) | Simulated sign-in and session events |
+| [`Mailbox_eventlogs`](Mailbox_eventlogs) | Simulated mailbox audit events |
+| [`IOC_list`](IOC_list) | Indicators of compromise (CSV format) |
+| [`investigation/timeline.md`](investigation/timeline.md) | Event timeline |
+| [`investigation/mitre-attack-mapping.md`](investigation/mitre-attack-mapping.md) | ATT&CK analysis |
+| [`report/`](report/) | Final incident investigation report |
 
 ## Timeline (19 Sep 2026, UTC)
 | Time | Event |
@@ -43,8 +44,7 @@ incident response.
 | 10:30 | Finance employee reports the request as suspicious |
 | 10:35 | SOC investigation started |
 
-incident_timeline.md:
-Full detail: [incident_timeline.md](investigation/incident_timeline.md)
+Full detail: [`investigation/timeline.md`](investigation/timeline.md)
 
 ## Key Findings
 1. SPF, DKIM, and DMARC passed, which fits misuse of a legitimate account
@@ -65,6 +65,8 @@ Full detail: [incident_timeline.md](investigation/incident_timeline.md)
 No phishing sub-technique is assigned because the evidence shows no
 malicious link or attachment. Mappings are hypotheses, not confirmed
 attacker behavior.
+
+Full mapping: [`investigation/mitre-attack-mapping.md`](investigation/mitre-attack-mapping.md)
 
 ## Recommendations
 1. Reset the CFO password and revoke all active sessions.
