@@ -6,8 +6,8 @@
 |---|---|
 | Case ID | BEC-001 |
 | Incident Type | Phishing / Business Email Compromise |
-| Severity | Medium |
-| Status | Investigated |
+| Severity | High (executive account, payment-fraud attempt; no loss confirmed) |
+| Status | Investigated (findings preliminary) |
 | Date | 19 September 2026 |
 | Affected Account | d.miller@northstar.example |
 | Organization | Northstar Technologies |
@@ -31,6 +31,8 @@ A successful authentication from `198.51.100.44` was followed by:
 - Detection of a new mailbox forwarding configuration
 
 The available evidence is consistent with a potential Business Email Compromise scenario.
+
+SPF, DKIM, and DMARC all passed for the message, so email authentication alone could not clear it. The account activity had to be examined directly.
 
 No actual financial loss is established in this simulation.
 
@@ -60,12 +62,14 @@ The following simulated evidence was reviewed:
 - Sender and recipient information
 - Authentication results
 - Originating IP address
+- Note: the email refers to "attached payment instructions," but no attachment was available for analysis
 
 ### Authentication Evidence
 
 - Successful authentication
 - Source IP address
 - Mailbox session activity
+- MFA status: not recorded in the available simulated logs
 
 ### Mailbox Evidence
 
@@ -103,7 +107,7 @@ The email requested that Finance process a vendor payment using updated banking 
 
 ### Finding 3 — Suspicious Mailbox Rule
 
-Approximately three minutes after the email was sent, a mailbox rule was created to move messages containing financial keywords such as "bank" or "payment" to the Archive folder.
+About two minutes after the email was sent (10:18:44 to 10:21:03 UTC), a mailbox rule was created to move messages containing financial keywords such as "bank" or "payment" to the Archive folder.
 
 This activity requires investigation because mailbox rules can affect the visibility and handling of messages.
 
@@ -112,6 +116,16 @@ This activity requires investigation because mailbox rules can affect the visibi
 A new mailbox forwarding configuration was detected approximately three minutes after the mailbox rule was created.
 
 The available evidence does not establish the destination or confirm that data was actually forwarded.
+
+### Finding 5 — Email Authentication Passed
+
+SPF, DKIM, and DMARC all passed. This fits misuse of a legitimate account rather than simple domain spoofing, and it means the message could not be flagged on authentication results alone.
+
+The `unknown-host.example` hop in the headers is consistent with a message submitted through an authenticated session from the external IP.
+
+### Finding 6 — Timing
+
+The request was sent on a Saturday, an unusual time for an urgent executive payment request, and it combined urgency with a change of bank details.
 
 ---
 
@@ -127,6 +141,14 @@ The available evidence does not establish the destination or confirm that data w
 | 10:30 | Finance reports suspicious request |
 | 10:35 | SOC investigation begins |
 
+### Detection Gaps
+
+- The incident was reported by the finance employee at 10:30 UTC, about 39 minutes after the first suspicious sign-in (09:51) and 12 minutes after the payment email was sent (10:18).
+- No alert fired on the sign-in from a previously unseen IP.
+- No alert fired on the creation of an inbox rule targeting financial keywords.
+- No alert fired on the new forwarding configuration.
+- Detection depended on a user report rather than on monitoring.
+
 ---
 
 ## 7. MITRE ATT&CK Mapping
@@ -135,6 +157,11 @@ The investigation identified activity potentially relevant to:
 
 - T1078 — Valid Accounts
 - T1114 — Email Collection
+
+Potentially applicable, pending further evidence:
+
+- T1114.003 — Email Collection: Email Forwarding Rule (new forwarding configuration)
+- T1564.008 — Hide Artifacts: Email Hiding Rules (rule moving finance messages to Archive)
 
 These mappings represent investigative hypotheses based on the simulated evidence.
 
@@ -170,6 +197,13 @@ The evidence does not establish how credentials were obtained or confirm that em
 - Independently verify vendor banking changes
 - Contact the vendor using a trusted communication channel
 - Do not rely solely on payment instructions received through email
+
+### Detection Improvements
+
+- Alert on sign-ins from IP addresses not previously seen for the user
+- Alert on inbox rules containing financial keywords
+- Alert on new mailbox forwarding configurations, and block external auto-forwarding
+- Correlate a new-IP sign-in with a rule or forwarding change within a short window
 
 ### Post-Incident
 
